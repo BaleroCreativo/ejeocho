@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ClipboardList, Lightbulb, Rocket, BarChart2 } from "lucide-react";
+import { ClipboardList, Map, Zap, BarChart2, Rocket } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,41 +14,51 @@ const steps = [
     number: "01",
     icon: ClipboardList,
     title: "Diagnóstico",
-    subtitle: "Entendemos tu negocio",
+    subtitle: "Auditoría de los 8 ejes",
     description:
-      "Analizamos tu situación actual: ventas, marketing, competencia y oportunidades. Sin suposiciones, solo datos reales.",
-    color: "#FF4D00",
+      "Evaluamos el estado actual de cada eje en tu negocio. Identificamos brechas, fortalezas y las prioridades de mayor impacto.",
+    color: "#04CCB5",
     duration: "1 semana",
   },
   {
     number: "02",
-    icon: Lightbulb,
-    title: "Estrategia",
-    subtitle: "Diseñamos el plan",
+    icon: Map,
+    title: "Diseño",
+    subtitle: "Roadmap personalizado",
     description:
-      "Creamos una hoja de ruta personalizada con objetivos claros, canales definidos y KPIs medibles desde el día uno.",
-    color: "#FFB800",
+      "Creamos una hoja de ruta con acciones concretas, responsables y fechas. Cada paso tiene un propósito claro.",
+    color: "#FCE300",
     duration: "1 semana",
   },
   {
     number: "03",
-    icon: Rocket,
-    title: "Ejecución",
-    subtitle: "Ponemos manos a la obra",
+    icon: Zap,
+    title: "Activación",
+    subtitle: "Implementación por prioridades",
     description:
-      "Implementamos las acciones acordadas: campañas, CRM, contenido, seguimiento. Tu equipo y el nuestro trabajamos juntos.",
-    color: "#00E8A2",
-    duration: "Mes 1-2",
+      "Ejecutamos los ejes de mayor palanca primero. Tu equipo y el nuestro trabajamos en paralelo para generar resultados rápidos.",
+    color: "#04CCB5",
+    duration: "Mes 1–2",
   },
   {
     number: "04",
     icon: BarChart2,
-    title: "Resultados",
-    subtitle: "Medimos y optimizamos",
+    title: "Medición",
+    subtitle: "KPIs y tablero de control",
     description:
-      "Reportes claros, reuniones de seguimiento y ajustes continuos para maximizar tu ROI y mantener el crecimiento.",
-    color: "#A78BFA",
+      "Tableros en tiempo real, reuniones de revisión quincenales y ajustes basados en datos, no en opiniones.",
+    color: "#508590",
     duration: "Mensual",
+  },
+  {
+    number: "05",
+    icon: Rocket,
+    title: "Escalamiento",
+    subtitle: "Optimización continua",
+    description:
+      "Con los fundamentos sólidos, escalamos los canales que funcionan y exploramos nuevos ejes de crecimiento.",
+    color: "#FCE300",
+    duration: "Trimestral",
   },
 ];
 
@@ -96,26 +106,25 @@ export function Process() {
     <section
       id="proceso"
       ref={sectionRef}
-      className="py-28 px-6 bg-[#080B12]"
+      className="py-28 px-6 bg-[#0C1418]"
       aria-labelledby="process-heading"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="process-heading text-center mb-20">
-          <span className="inline-block text-[#FFB800] font-heading font-bold text-sm tracking-[0.2em] uppercase mb-4">
+          <span className="inline-block text-[#FCE300] font-body font-bold text-sm tracking-[0.2em] uppercase mb-4">
             Cómo trabajamos
           </span>
           <h2
             id="process-heading"
-            className="font-heading font-black text-[clamp(2.5rem,5vw,4.5rem)] text-white leading-tight mb-6"
+            className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] text-white leading-tight mb-6"
           >
-            De cero a resultados{" "}
-            <br />
-            <span className="text-gradient-orange">en 4 pasos</span>
+            De diagnóstico a{" "}
+            <span className="text-gradient-teal">escalamiento</span>
           </h2>
-          <p className="max-w-xl mx-auto text-white/50 text-lg leading-relaxed">
-            Un proceso probado que elimina la incertidumbre y te da claridad en
-            cada etapa del camino.
+          <p className="max-w-xl mx-auto text-white/50 text-lg leading-relaxed font-body">
+            Un proceso de 5 etapas que convierte el caos comercial en un
+            sistema predecible.
           </p>
         </div>
 
@@ -123,11 +132,11 @@ export function Process() {
         <div className="relative">
           {/* Connector line (desktop) */}
           <div
-            className="hidden lg:block absolute top-[4.5rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className="hidden lg:block absolute top-[4.5rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"
             aria-hidden="true"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
             {steps.map((step, i) => (
               <article
                 key={i}
@@ -135,11 +144,11 @@ export function Process() {
               >
                 {/* Number badge */}
                 <div
-                  className="absolute -top-3 left-7 text-xs font-heading font-black px-3 py-1 rounded-full"
+                  className="absolute -top-3 left-7 text-xs font-body font-black px-3 py-1 rounded-full"
                   style={{
-                    background: `${step.color}22`,
+                    background: `${step.color}20`,
                     color: step.color,
-                    border: `1px solid ${step.color}33`,
+                    border: `1px solid ${step.color}30`,
                   }}
                 >
                   {step.number}
@@ -148,28 +157,28 @@ export function Process() {
                 {/* Icon */}
                 <div
                   className="flex items-center justify-center w-12 h-12 rounded-2xl mb-6 mt-3 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: `${step.color}18` }}
+                  style={{ background: `${step.color}15` }}
                   aria-hidden="true"
                 >
                   <step.icon size={22} style={{ color: step.color }} />
                 </div>
 
                 {/* Content */}
-                <h3 className="font-heading font-black text-xl text-white mb-1">
+                <h3 className="font-heading text-lg text-white mb-1">
                   {step.title}
                 </h3>
                 <p
-                  className="font-heading font-semibold text-sm mb-3"
+                  className="font-body font-bold text-sm mb-3"
                   style={{ color: step.color }}
                 >
                   {step.subtitle}
                 </p>
-                <p className="text-white/50 text-sm leading-relaxed mb-5">
+                <p className="text-white/50 text-sm leading-relaxed mb-5 font-body">
                   {step.description}
                 </p>
 
                 {/* Duration */}
-                <div className="flex items-center gap-2 text-xs text-white/30 font-medium">
+                <div className="flex items-center gap-2 text-xs text-white/30 font-body">
                   <div
                     className="w-1 h-1 rounded-full"
                     style={{ background: step.color }}

@@ -6,20 +6,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-heading font-bold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer touch-manipulation [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-body font-bold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer touch-manipulation [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-[#FF4D00] text-white hover:bg-[#FF7240] shadow-orange-glow-sm hover:shadow-orange-glow active:scale-[0.97]",
+          "bg-[#04CCB5] text-[#0C1418] hover:bg-[#00A896] shadow-teal-glow-sm hover:shadow-teal-glow active:scale-[0.97]",
         outline:
-          "border border-white/20 bg-transparent text-white hover:border-[#FF4D00] hover:text-[#FF4D00] active:scale-[0.97]",
+          "border border-white/20 bg-transparent text-white hover:border-[#04CCB5] hover:text-[#04CCB5] active:scale-[0.97]",
         ghost:
           "bg-transparent text-white hover:bg-white/5 active:scale-[0.97]",
-        mint:
-          "bg-[#00E8A2] text-[#080B12] font-bold hover:bg-[#00C98C] active:scale-[0.97]",
+        yellow:
+          "bg-[#FCE300] text-[#0C1418] font-bold hover:bg-[#FFE566] active:scale-[0.97]",
         dark:
-          "bg-white/8 border border-white/10 text-white hover:bg-white/12 hover:border-white/20 active:scale-[0.97]",
+          "bg-white/[0.06] border border-white/10 text-white hover:bg-white/[0.10] hover:border-white/20 active:scale-[0.97]",
       },
       size: {
         default: "h-12 px-7 py-3 text-[15px] rounded-xl",

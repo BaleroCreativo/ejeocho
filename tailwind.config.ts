@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["var(--font-syne)", "sans-serif"],
-        body: ["var(--font-jakarta)", "sans-serif"],
-        sans: ["var(--font-jakarta)", "sans-serif"],
+        heading: ["var(--font-yeseva)", "serif"],
+        body: ["var(--font-lato)", "sans-serif"],
+        sans: ["var(--font-lato)", "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",
@@ -49,12 +49,15 @@ const config: Config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         brand: {
-          orange: "#FF4D00",
-          "orange-light": "#FF7240",
-          dark: "#080B12",
-          darker: "#050709",
-          mint: "#00E8A2",
-          "mint-dark": "#00C98C",
+          teal: "#04CCB5",
+          "teal-dark": "#00A896",
+          yellow: "#FCE300",
+          "yellow-light": "#FFE566",
+          dark: "#0C1418",
+          darker: "#090F13",
+          "mid-teal": "#508590",
+          light: "#C6D6E3",
+          slate: "#2E3C41",
         },
       },
       borderRadius: {
@@ -113,19 +116,21 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "hero-gradient":
-          "radial-gradient(ellipse 80% 80% at 50% -20%, rgba(255,77,0,0.15) 0%, transparent 70%)",
+          "radial-gradient(ellipse 80% 80% at 50% -20%, rgba(4,204,181,0.12) 0%, transparent 70%)",
         "card-gradient":
           "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)",
-        "orange-gradient": "linear-gradient(135deg, #FF4D00 0%, #FF7240 100%)",
-        "mint-gradient": "linear-gradient(135deg, #00E8A2 0%, #00C98C 100%)",
+        "teal-gradient": "linear-gradient(135deg, #04CCB5 0%, #00A896 100%)",
+        "yellow-gradient": "linear-gradient(135deg, #FCE300 0%, #FFE566 100%)",
+        "teal-yellow-gradient": "linear-gradient(135deg, #04CCB5 0%, #FCE300 100%)",
       },
       boxShadow: {
-        "orange-glow": "0 0 60px rgba(255, 77, 0, 0.3)",
-        "orange-glow-sm": "0 0 20px rgba(255, 77, 0, 0.2)",
+        "teal-glow": "0 0 60px rgba(4, 204, 181, 0.25)",
+        "teal-glow-sm": "0 0 20px rgba(4, 204, 181, 0.15)",
+        "yellow-glow": "0 0 40px rgba(252, 227, 0, 0.2)",
         "card-dark":
           "0 25px 50px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05)",
         "card-hover":
-          "0 40px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,77,0,0.1)",
+          "0 40px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(4,204,181,0.1)",
       },
     },
   },

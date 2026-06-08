@@ -1,38 +1,40 @@
 import type { Metadata } from "next";
-import { Syne, Plus_Jakarta_Sans } from "next/font/google";
+import { Yeseva_One, Lato } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
+const yesevaOne = Yeseva_One({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-yeseva",
+  weight: "400",
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const lato = Lato({
   subsets: ["latin"],
-  variable: "--font-jakarta",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-lato",
+  weight: ["100", "300", "400", "700", "900"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Ejeocho — Consultoría de Marketing y Ventas",
+  title: "Eje Ocho — Sistema de Crecimiento Comercial para PYMEs",
   description:
-    "Transformamos PYMEs en máquinas de ventas con estrategias de marketing digital y consultoría comercial que generan resultados reales y medibles.",
+    "Conectamos marketing, ventas y experiencia en un sistema de crecimiento comercial. Consultoría especializada en los 8 ejes que impulsan negocios latinoamericanos.",
   keywords: [
+    "Eje Ocho",
     "consultoría marketing",
+    "sistema de crecimiento comercial",
     "consultoría ventas",
     "marketing digital",
     "CRM",
     "PYMEs",
     "crecimiento empresarial",
-    "Ejeocho",
+    "los 8 ejes",
   ],
   openGraph: {
-    title: "Ejeocho — Consultoría de Marketing y Ventas",
+    title: "Eje Ocho — Sistema de Crecimiento Comercial para PYMEs",
     description:
-      "Transformamos PYMEs en máquinas de ventas con estrategias probadas.",
+      "Conectamos marketing, ventas y experiencia en un sistema de crecimiento comercial predecible.",
     type: "website",
   },
 };
@@ -43,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${syne.variable} ${jakarta.variable}`}>
-      <body className="font-body antialiased bg-[#080B12] text-white">
+    <html lang="es" className={`${yesevaOne.variable} ${lato.variable}`}>
+      <body className="font-body antialiased bg-[#0C1418] text-white">
         <div className="noise-overlay" aria-hidden="true" />
         {children}
       </body>

@@ -4,9 +4,9 @@ import { Globe, Mail, X } from "lucide-react";
 
 const footerLinks = {
   Servicios: [
-    { label: "Marketing Digital", href: "#servicios" },
-    { label: "Consultoría de Ventas", href: "#servicios" },
-    { label: "Implementación CRM", href: "#servicios" },
+    { label: "Los 8 Ejes", href: "#servicios" },
+    { label: "Diagnóstico Comercial", href: "#contacto" },
+    { label: "Proceso", href: "#proceso" },
   ],
   Empresa: [
     { label: "Nosotros", href: "#proceso" },
@@ -27,22 +27,22 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#05070D] border-t border-white/[0.05]" role="contentinfo">
+    <footer className="bg-[#090F13] border-t border-white/[0.05]" role="contentinfo">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link
               href="/"
-              className="font-heading font-black text-2xl tracking-tight inline-block mb-4"
-              aria-label="Ejeocho - ir al inicio"
+              className="font-heading text-2xl tracking-tight inline-block mb-4"
+              aria-label="Eje Ocho - ir al inicio"
             >
-              <span className="text-gradient-orange">eje</span>
-              <span className="text-white">ocho</span>
+              <span className="text-gradient-teal">Eje</span>
+              <span className="text-white"> Ocho</span>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
-              Consultoría de marketing digital y ventas para PYMEs que quieren
-              crecer con estrategia, no con suerte.
+              Conectamos marketing, ventas y experiencia en un sistema de
+              crecimiento comercial para PYMEs latinoamericanas.
             </p>
 
             {/* Social */}
@@ -52,7 +52,7 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-white/40 hover:text-[#FF4D00] hover:border-[#FF4D00]/30 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00]"
+                  className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-white/40 hover:text-[#04CCB5] hover:border-[#04CCB5]/30 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5]"
                 >
                   <social.icon size={16} aria-hidden="true" />
                 </a>
@@ -63,7 +63,7 @@ export function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="font-heading font-bold text-white/60 text-xs tracking-[0.15em] uppercase mb-5">
+              <h3 className="font-body font-bold text-white/60 text-xs tracking-[0.15em] uppercase mb-5">
                 {category}
               </h3>
               <ul className="space-y-3">
@@ -71,7 +71,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-white/40 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus-visible:text-[#FF4D00]"
+                      className="text-white/40 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus-visible:text-[#04CCB5]"
                     >
                       {link.label}
                     </Link>
@@ -85,7 +85,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/25 text-xs">
-            © {new Date().getFullYear()} Ejeocho. Todos los derechos reservados.
+            © {new Date().getFullYear()} Eje Ocho. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
             <Link

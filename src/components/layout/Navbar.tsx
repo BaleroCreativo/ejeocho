@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
 
 const navLinks = [
-  { label: "Servicios", href: "#servicios" },
+  { label: "Los 8 Ejes", href: "#servicios" },
   { label: "Resultados", href: "#resultados" },
   { label: "Proceso", href: "#proceso" },
   { label: "Blog", href: "/blog" },
@@ -61,7 +61,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-[#080B12]/95 backdrop-blur-xl border-b border-white/[0.06] py-3"
+            ? "bg-[#0C1418]/95 backdrop-blur-xl border-b border-white/[0.06] py-3"
             : "bg-transparent py-5"
         )}
         aria-label="Navegación principal"
@@ -70,10 +70,11 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-heading font-black text-2xl tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080B12] rounded"
+            className="font-heading text-2xl tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0C1418] rounded"
+            aria-label="Eje Ocho — ir al inicio"
           >
-            <span className="text-gradient-orange">eje</span>
-            <span className="text-white">ocho</span>
+            <span className="text-gradient-teal">Eje</span>
+            <span className="text-white"> Ocho</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -82,7 +83,7 @@ export function Navbar() {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 link-underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00] rounded px-1"
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 link-underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5] rounded px-1"
               >
                 {link.label}
               </button>
@@ -95,14 +96,14 @@ export function Navbar() {
               size="sm"
               onClick={() => handleNavClick("#contacto")}
             >
-              Hablemos
+              Iniciar diagnóstico
             </Button>
           </div>
 
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00] rounded"
+            className="md:hidden p-2 text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5] rounded"
             aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -114,20 +115,20 @@ export function Navbar() {
       {mobileOpen && (
         <div
           ref={mobileMenuRef}
-          className="fixed top-0 left-0 right-0 bottom-0 z-40 bg-[#080B12]/98 backdrop-blur-2xl flex flex-col"
+          className="fixed top-0 left-0 right-0 bottom-0 z-40 bg-[#0C1418]/98 backdrop-blur-2xl flex flex-col"
         >
           <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
             <Link
               href="/"
-              className="font-heading font-black text-2xl"
+              className="font-heading text-2xl"
               onClick={() => setMobileOpen(false)}
             >
-              <span className="text-gradient-orange">eje</span>
-              <span className="text-white">ocho</span>
+              <span className="text-gradient-teal">Eje</span>
+              <span className="text-white"> Ocho</span>
             </Link>
             <button
               onClick={() => setMobileOpen(false)}
-              className="p-2 text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00] rounded"
+              className="p-2 text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5] rounded"
               aria-label="Cerrar menú"
             >
               <X size={22} />
@@ -138,7 +139,7 @@ export function Navbar() {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-left font-heading text-3xl font-bold text-white/80 hover:text-[#FF4D00] transition-colors duration-200 py-3 focus:outline-none focus-visible:text-[#FF4D00]"
+                className="text-left font-heading text-3xl text-white/80 hover:text-[#04CCB5] transition-colors duration-200 py-3 focus:outline-none focus-visible:text-[#04CCB5]"
                 style={{ transitionDelay: `${i * 50}ms` }}
               >
                 {link.label}
@@ -151,7 +152,7 @@ export function Navbar() {
               size="lg"
               onClick={() => handleNavClick("#contacto")}
             >
-              Hablemos de tu negocio
+              Diagnosticar mi negocio
             </Button>
           </div>
         </div>

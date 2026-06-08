@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
 const posts = [
   {
     category: "Marketing Digital",
-    categoryColor: "#FF4D00",
+    categoryColor: "#04CCB5",
     title: "5 métricas de marketing que toda PYME debería monitorear cada semana",
     excerpt:
       "Si no mides, no puedes mejorar. Estas 5 métricas te dan una radiografía semanal de tu estrategia digital y te dicen exactamente dónde enfocar tu presupuesto.",
@@ -24,17 +24,17 @@ const posts = [
   },
   {
     category: "Ventas",
-    categoryColor: "#00E8A2",
+    categoryColor: "#FCE300",
     title: "Cómo implementar un CRM en tu PYME sin morir en el intento",
     excerpt:
-      "El CRM correcto puede triplicar tus cierres. El incorrecto, paralizar tu operación. Guía práctica para elegir e implementar la herramienta que sí funciona para tu negocio.",
+      "El CRM correcto puede triplicar tus cierres. El incorrecto, paralizar tu operación. Guía práctica para elegir e implementar la herramienta que sí funciona.",
     readTime: "8 min",
     slug: "implementar-crm-pyme",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
   },
   {
     category: "Estrategia",
-    categoryColor: "#A78BFA",
+    categoryColor: "#508590",
     title: "El error más costoso que cometen las PYMEs en publicidad digital",
     excerpt:
       "El 80% de los negocios tiran dinero en ads sin una estrategia de conversión. Te mostramos el framework que usamos para asegurar que cada peso invertido genere retorno.",
@@ -87,22 +87,22 @@ export function BlogPreview() {
   return (
     <section
       ref={sectionRef}
-      className="py-28 px-6 bg-[#080B12]"
+      className="py-28 px-6 bg-[#0C1418]"
       aria-labelledby="blog-heading"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="blog-heading flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div>
-            <span className="inline-block text-[#A78BFA] font-heading font-bold text-sm tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-[#508590] font-body font-bold text-sm tracking-[0.2em] uppercase mb-4">
               Recursos gratis
             </span>
             <h2
               id="blog-heading"
-              className="font-heading font-black text-[clamp(2rem,4.5vw,3.5rem)] text-white leading-tight"
+              className="font-heading text-[clamp(2rem,4.5vw,3.5rem)] text-white leading-tight"
             >
-              Aprende a vender{" "}
-              <span className="text-gradient-orange">mejor</span>
+              Aprende a{" "}
+              <span className="text-gradient-teal">vender mejor</span>
             </h2>
           </div>
           <Button variant="outline" asChild>
@@ -119,7 +119,7 @@ export function BlogPreview() {
             <article key={i} className="blog-card group">
               <Link
                 href={`/blog/${post.slug}`}
-                className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00] rounded-2xl"
+                className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5] rounded-2xl"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden rounded-2xl mb-5 aspect-[16/9]">
@@ -138,9 +138,9 @@ export function BlogPreview() {
                 {/* Meta */}
                 <div className="flex items-center gap-3 mb-3">
                   <span
-                    className="text-xs font-bold tracking-wider uppercase rounded-full px-3 py-1"
+                    className="text-xs font-bold tracking-wider uppercase rounded-full px-3 py-1 font-body"
                     style={{
-                      background: `${post.categoryColor}18`,
+                      background: `${post.categoryColor}15`,
                       color: post.categoryColor,
                     }}
                   >
@@ -153,12 +153,12 @@ export function BlogPreview() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-heading font-black text-lg text-white group-hover:text-[#FF4D00] transition-colors duration-200 leading-snug mb-2">
+                <h3 className="font-heading text-lg text-white group-hover:text-[#04CCB5] transition-colors duration-200 leading-snug mb-2">
                   {post.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-white/45 text-sm leading-relaxed line-clamp-3">
+                <p className="text-white/45 text-sm leading-relaxed line-clamp-3 font-body">
                   {post.excerpt}
                 </p>
               </Link>

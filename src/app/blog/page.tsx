@@ -9,7 +9,7 @@ import { ArrowRight, Clock, Search } from "lucide-react";
 const allPosts = [
   {
     category: "Marketing Digital",
-    categoryColor: "#FF4D00",
+    categoryColor: "#04CCB5",
     title: "5 métricas de marketing que toda PYME debería monitorear cada semana",
     excerpt:
       "Si no mides, no puedes mejorar. Estas 5 métricas te dan una radiografía semanal de tu estrategia digital.",
@@ -20,7 +20,7 @@ const allPosts = [
   },
   {
     category: "Ventas",
-    categoryColor: "#00E8A2",
+    categoryColor: "#FCE300",
     title: "Cómo implementar un CRM en tu PYME sin morir en el intento",
     excerpt:
       "El CRM correcto puede triplicar tus cierres. Guía práctica para elegir e implementar la herramienta que funciona.",
@@ -31,7 +31,7 @@ const allPosts = [
   },
   {
     category: "Estrategia",
-    categoryColor: "#A78BFA",
+    categoryColor: "#508590",
     title: "El error más costoso que cometen las PYMEs en publicidad digital",
     excerpt:
       "El 80% de los negocios tiran dinero en ads sin una estrategia de conversión. Aprende el framework correcto.",
@@ -42,7 +42,7 @@ const allPosts = [
   },
   {
     category: "Marketing Digital",
-    categoryColor: "#FF4D00",
+    categoryColor: "#04CCB5",
     title: "SEO local: cómo aparecer primero en Google cuando tus clientes te buscan",
     excerpt:
       "Para negocios locales, el SEO puede ser el canal de adquisición más rentable. Te enseñamos cómo dominarlo.",
@@ -53,7 +53,7 @@ const allPosts = [
   },
   {
     category: "Ventas",
-    categoryColor: "#00E8A2",
+    categoryColor: "#FCE300",
     title: "Cómo escribir emails de prospección que sí generan respuesta",
     excerpt:
       "El cold email sigue funcionando cuando se hace bien. Plantillas, asuntos y mejores prácticas para conectar con prospectos.",
@@ -64,7 +64,7 @@ const allPosts = [
   },
   {
     category: "Estrategia",
-    categoryColor: "#A78BFA",
+    categoryColor: "#508590",
     title: "Diagnóstico de marketing: 10 preguntas que revelan los hoyos en tu estrategia",
     excerpt:
       "Antes de invertir un peso más, hazte estas preguntas. La mayoría de los problemas de crecimiento tienen solución obvia cuando los identificas.",
@@ -83,35 +83,27 @@ export default function BlogPage(): React.ReactElement {
       <Navbar />
       <main id="main-content">
         {/* Hero */}
-        <section className="pt-32 pb-20 px-6 bg-[#080B12] relative overflow-hidden">
+        <section className="pt-32 pb-20 px-6 bg-[#0C1418] relative overflow-hidden">
           <div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#A78BFA]/8 blur-[120px] pointer-events-none"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#04CCB5]/6 blur-[120px] pointer-events-none"
             aria-hidden="true"
           />
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <span className="inline-block text-[#A78BFA] font-heading font-bold text-sm tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-[#04CCB5] font-body font-bold text-sm tracking-[0.2em] uppercase mb-4">
               Blog & Recursos
             </span>
-            <h1 className="font-heading font-black text-[clamp(3rem,7vw,5.5rem)] text-white leading-tight mb-6">
+            <h1 className="font-heading text-[clamp(3rem,7vw,5.5rem)] text-white leading-tight mb-6">
               Aprende.{" "}
-              <span
-                style={{
-                  background:
-                    "linear-gradient(135deg, #A78BFA 0%, #FF4D00 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span className="text-gradient-teal">
                 Crece.
               </span>
             </h1>
-            <p className="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto font-body">
               Estrategias de marketing y ventas explicadas de forma simple, con
               ejemplos reales de PYMEs latinoamericanas.
             </p>
 
-            {/* Search (visual placeholder) */}
+            {/* Search */}
             <div className="mt-10 relative max-w-md mx-auto">
               <Search
                 size={18}
@@ -121,7 +113,7 @@ export default function BlogPage(): React.ReactElement {
               <input
                 type="search"
                 placeholder="Buscar artículos..."
-                className="w-full bg-white/[0.04] border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-[#A78BFA] focus:ring-1 focus:ring-[#A78BFA] transition-colors text-sm"
+                className="w-full bg-white/[0.04] border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-[#04CCB5] focus:ring-1 focus:ring-[#04CCB5] transition-colors text-sm font-body"
                 aria-label="Buscar artículos"
               />
             </div>
@@ -129,16 +121,16 @@ export default function BlogPage(): React.ReactElement {
         </section>
 
         {/* Posts */}
-        <section className="py-16 px-6 bg-[#080B12]" aria-label="Lista de artículos">
+        <section className="py-16 px-6 bg-[#0C1418]" aria-label="Lista de artículos">
           <div className="max-w-7xl mx-auto">
             {/* Category Filter */}
             <div className="flex flex-wrap gap-3 mb-12" role="list" aria-label="Filtros de categoría">
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  className={`px-5 py-2 rounded-full text-sm font-heading font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00] cursor-pointer ${
+                  className={`px-5 py-2 rounded-full text-sm font-body font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5] cursor-pointer ${
                     cat === "Todos"
-                      ? "bg-[#FF4D00] text-white"
+                      ? "bg-[#04CCB5] text-[#0C1418]"
                       : "bg-white/[0.04] border border-white/10 text-white/60 hover:text-white hover:border-white/20"
                   }`}
                   role="listitem"
@@ -154,7 +146,7 @@ export default function BlogPage(): React.ReactElement {
                 <article key={i} className="group">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00] rounded-2xl"
+                    className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5] rounded-2xl"
                   >
                     {/* Image */}
                     <div className="relative overflow-hidden rounded-2xl mb-5 aspect-[16/9]">
@@ -173,9 +165,9 @@ export default function BlogPage(): React.ReactElement {
                     {/* Meta */}
                     <div className="flex items-center gap-3 mb-3">
                       <span
-                        className="text-xs font-bold tracking-wider uppercase rounded-full px-3 py-1"
+                        className="text-xs font-bold tracking-wider uppercase rounded-full px-3 py-1 font-body"
                         style={{
-                          background: `${post.categoryColor}18`,
+                          background: `${post.categoryColor}15`,
                           color: post.categoryColor,
                         }}
                       >
@@ -185,19 +177,19 @@ export default function BlogPage(): React.ReactElement {
                         <Clock size={12} aria-hidden="true" />
                         {post.readTime}
                       </div>
-                      <span className="text-white/20 text-xs ml-auto">
+                      <span className="text-white/20 text-xs ml-auto font-body">
                         {post.date}
                       </span>
                     </div>
 
-                    <h2 className="font-heading font-black text-lg text-white group-hover:text-[#FF4D00] transition-colors duration-200 leading-snug mb-2">
+                    <h2 className="font-heading text-lg text-white group-hover:text-[#04CCB5] transition-colors duration-200 leading-snug mb-2">
                       {post.title}
                     </h2>
-                    <p className="text-white/45 text-sm leading-relaxed line-clamp-2 mb-4">
+                    <p className="text-white/45 text-sm leading-relaxed line-clamp-2 mb-4 font-body">
                       {post.excerpt}
                     </p>
 
-                    <span className="inline-flex items-center gap-1.5 text-[#FF4D00] text-sm font-semibold group-hover:gap-3 transition-all duration-200">
+                    <span className="inline-flex items-center gap-1.5 text-[#04CCB5] text-sm font-semibold group-hover:gap-3 transition-all duration-200 font-body">
                       Leer artículo{" "}
                       <ArrowRight size={14} aria-hidden="true" />
                     </span>
@@ -209,12 +201,12 @@ export default function BlogPage(): React.ReactElement {
         </section>
 
         {/* Newsletter CTA */}
-        <section className="py-24 px-6 bg-[#05070D]" aria-label="Suscripción al newsletter">
+        <section className="py-24 px-6 bg-[#090F13]" aria-label="Suscripción al newsletter">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-heading font-black text-3xl md:text-4xl text-white mb-4">
+            <h2 className="font-heading text-3xl md:text-4xl text-white mb-4">
               Recibe estrategias en tu inbox
             </h2>
-            <p className="text-white/50 mb-8 leading-relaxed">
+            <p className="text-white/50 mb-8 leading-relaxed font-body">
               Cada semana, un artículo accionable de marketing o ventas directo a tu correo. Sin spam.
             </p>
             <form
@@ -230,11 +222,11 @@ export default function BlogPage(): React.ReactElement {
                 type="email"
                 placeholder="tu@empresa.com"
                 required
-                className="flex-1 bg-white/[0.04] border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-[#FF4D00] focus:ring-1 focus:ring-[#FF4D00] transition-colors text-sm"
+                className="flex-1 bg-white/[0.04] border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-[#04CCB5] focus:ring-1 focus:ring-[#04CCB5] transition-colors text-sm font-body"
               />
               <button
                 type="submit"
-                className="bg-[#FF4D00] text-white font-heading font-bold text-sm px-7 py-3.5 rounded-xl hover:bg-[#FF7240] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#05070D] whitespace-nowrap cursor-pointer"
+                className="bg-[#04CCB5] text-[#0C1418] font-body font-bold text-sm px-7 py-3.5 rounded-xl hover:bg-[#00A896] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#04CCB5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090F13] whitespace-nowrap cursor-pointer"
               >
                 Suscribirme gratis
               </button>

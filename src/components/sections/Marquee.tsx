@@ -3,23 +3,23 @@
 import React from "react";
 
 const items = [
-  "MARKETING DIGITAL",
-  "CONSULTORÍA DE VENTAS",
-  "CRM & AUTOMATIZACIÓN",
-  "ESTRATEGIA DE MARCA",
-  "PAID MEDIA",
-  "SEO & CONTENIDO",
-  "PIPELINE DE VENTAS",
-  "GROWTH HACKING",
+  "IDENTIDAD Y PROPUESTA DE VALOR",
+  "PRESENCIA DIGITAL",
+  "CAPTACIÓN DE DEMANDA",
+  "NUTRICIÓN DE LEADS",
+  "PROCESO DE VENTAS",
+  "EXPERIENCIA DEL CLIENTE",
+  "FIDELIZACIÓN Y EXPANSIÓN",
+  "MEDICIÓN Y OPTIMIZACIÓN",
 ];
 
 function MarqueeItem({ text }: { text: string }) {
   return (
     <span className="flex items-center gap-6 px-6">
-      <span className="font-heading font-black text-sm md:text-base uppercase tracking-[0.15em] text-white/80 whitespace-nowrap">
+      <span className="font-body font-bold text-sm md:text-base uppercase tracking-[0.15em] text-white/70 whitespace-nowrap">
         {text}
       </span>
-      <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D00] flex-shrink-0" aria-hidden="true" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#04CCB5] flex-shrink-0" aria-hidden="true" />
     </span>
   );
 }
@@ -28,10 +28,10 @@ export function Marquee() {
   const doubled = [...items, ...items];
 
   return (
-    <section className="relative py-5 bg-[#FF4D00]/[0.04] border-y border-[#FF4D00]/15 overflow-hidden">
+    <section className="relative py-5 bg-[#04CCB5]/[0.04] border-y border-[#04CCB5]/15 overflow-hidden">
       <div
         className="flex w-max"
-        style={{ animation: "marquee 30s linear infinite" }}
+        style={{ animation: "marquee 32s linear infinite" }}
         aria-hidden="true"
       >
         {doubled.map((item, i) => (

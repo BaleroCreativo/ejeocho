@@ -4,14 +4,14 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  BarChart3,
-  Target,
+  Fingerprint,
+  Globe,
+  Magnet,
   Mail,
-  Search,
-  Users2,
+  BarChart3,
+  Heart,
+  Repeat2,
   TrendingUp,
-  Database,
-  Handshake,
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,40 +20,78 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const services = [
+const ejes = [
   {
-    id: "marketing",
-    title: "Marketing Digital",
-    tagline: "Atrae. Convierte. Escala.",
+    number: "01",
+    icon: Fingerprint,
+    title: "Identidad y Propuesta de Valor",
     description:
-      "Diseñamos y ejecutamos estrategias de marketing digital que generan demanda real para tu negocio. Sin promesas vacías, solo resultados medibles.",
-    color: "#FF4D00",
-    bgColor: "rgba(255,77,0,0.06)",
-    borderColor: "rgba(255,77,0,0.15)",
-    features: [
-      { icon: Search, label: "SEO & Posicionamiento orgánico" },
-      { icon: BarChart3, label: "Publicidad pagada (Google & Meta Ads)" },
-      { icon: Mail, label: "Email marketing y automatización" },
-      { icon: Target, label: "Estrategia de contenido y redes sociales" },
-    ],
-    cta: "Ver plan de marketing",
+      "Definimos quién eres, a quién le hablas y por qué deberían elegirte. La base de todo sistema comercial exitoso.",
+    color: "#04CCB5",
+    tag: "Fundamento",
   },
   {
-    id: "ventas",
-    title: "Consultoría de Ventas",
-    tagline: "Cierra más. Pierde menos.",
+    number: "02",
+    icon: Globe,
+    title: "Presencia Digital",
     description:
-      "Optimizamos tu proceso comercial de punta a punta: desde la prospección hasta el cierre. Implementamos CRM y entrenamos a tu equipo para vender más.",
-    color: "#00E8A2",
-    bgColor: "rgba(0,232,162,0.06)",
-    borderColor: "rgba(0,232,162,0.15)",
-    features: [
-      { icon: Database, label: "Implementación y configuración de CRM" },
-      { icon: Users2, label: "Capacitación de equipos de ventas" },
-      { icon: TrendingUp, label: "Diseño de pipeline y funnel de ventas" },
-      { icon: Handshake, label: "Estrategia de prospección y seguimiento" },
-    ],
-    cta: "Ver plan de ventas",
+      "Tu sitio web, redes y perfiles deben ser herramientas de venta, no solo vitrinas. Los optimizamos para convertir.",
+    color: "#FCE300",
+    tag: "Visibilidad",
+  },
+  {
+    number: "03",
+    icon: Magnet,
+    title: "Captación y Generación de Demanda",
+    description:
+      "SEO, paid media, contenido y alianzas estratégicas para atraer prospectos calificados de forma constante.",
+    color: "#04CCB5",
+    tag: "Atracción",
+  },
+  {
+    number: "04",
+    icon: Mail,
+    title: "Nutrición y Conversión de Leads",
+    description:
+      "Email marketing, automatizaciones y flujos de nurturing que convierten interés en decisión de compra.",
+    color: "#508590",
+    tag: "Conversión",
+  },
+  {
+    number: "05",
+    icon: BarChart3,
+    title: "Proceso de Ventas y CRM",
+    description:
+      "Estructuramos tu pipeline, implementamos CRM y entrenamos al equipo para cerrar más oportunidades con menos fricción.",
+    color: "#FCE300",
+    tag: "Cierre",
+  },
+  {
+    number: "06",
+    icon: Heart,
+    title: "Experiencia del Cliente",
+    description:
+      "El cliente que tiene una experiencia memorable compra de nuevo y refiere. Diseñamos cada punto de contacto.",
+    color: "#04CCB5",
+    tag: "Retención",
+  },
+  {
+    number: "07",
+    icon: Repeat2,
+    title: "Fidelización y Expansión",
+    description:
+      "Programas de lealtad, upsell, cross-sell y referidos que multiplican el valor de cada cliente activo.",
+    color: "#508590",
+    tag: "Crecimiento",
+  },
+  {
+    number: "08",
+    icon: TrendingUp,
+    title: "Medición y Optimización",
+    description:
+      "Tableros de control, KPIs y reuniones de revisión para que cada decisión esté basada en datos reales.",
+    color: "#FCE300",
+    tag: "Resultados",
   },
 ];
 
@@ -78,17 +116,17 @@ export function Services() {
       );
 
       gsap.fromTo(
-        ".service-card",
+        ".eje-card",
         { y: 60, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.2,
-          duration: 0.9,
+          stagger: 0.08,
+          duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: ".service-card",
-            start: "top 85%",
+            trigger: ".eje-card",
+            start: "top 88%",
           },
         }
       );
@@ -97,118 +135,99 @@ export function Services() {
     return () => ctx.revert();
   }, []);
 
+  const scrollToContact = () => {
+    document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="servicios"
       ref={sectionRef}
-      className="py-28 px-6 bg-[#080B12]"
+      className="py-28 px-6 bg-[#0C1418]"
       aria-labelledby="services-heading"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="services-heading text-center mb-20">
-          <span className="inline-block text-[#FF4D00] font-heading font-bold text-sm tracking-[0.2em] uppercase mb-4">
-            Lo que hacemos
+          <span className="inline-block text-[#04CCB5] font-body font-bold text-sm tracking-[0.2em] uppercase mb-4">
+            El sistema
           </span>
           <h2
             id="services-heading"
-            className="font-heading font-black text-[clamp(2.5rem,5vw,4.5rem)] text-white leading-tight mb-6"
+            className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] text-white leading-tight mb-6"
           >
-            Dos armas para{" "}
-            <span className="text-gradient-orange">hacer crecer</span>
-            <br />
-            tu negocio
+            Los{" "}
+            <span className="text-gradient-teal">8 Ejes</span>
+            {" "}de crecimiento
           </h2>
-          <p className="max-w-2xl mx-auto text-white/50 text-lg leading-relaxed">
-            No vendemos paquetes genéricos. Cada estrategia es diseñada para tu
-            negocio, tu mercado y tus objetivos específicos.
+          <p className="max-w-2xl mx-auto text-white/50 text-lg leading-relaxed font-body">
+            No son servicios aislados. Son los 8 frentes que deben estar
+            alineados para que tu negocio crezca de forma predecible y sostenida.
           </p>
         </div>
 
-        {/* Service Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {services.map((service) => (
+        {/* Ejes Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+          {ejes.map((eje) => (
             <article
-              key={service.id}
-              className="service-card group relative rounded-3xl p-8 md:p-10 border transition-all duration-500 hover-lift"
-              style={{
-                background: service.bgColor,
-                borderColor: service.borderColor,
-              }}
+              key={eje.number}
+              className="eje-card group relative rounded-2xl p-6 border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 transition-all duration-400 hover-lift"
             >
-              {/* Glow on hover */}
+              {/* Number */}
               <div
-                className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{
-                  background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${service.color}08 0%, transparent 70%)`,
-                }}
-                aria-hidden="true"
-              />
-
-              {/* Tag */}
-              <div
-                className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase mb-8"
-                style={{
-                  background: `${service.color}18`,
-                  color: service.color,
-                }}
+                className="font-heading text-xs mb-5 inline-flex items-center gap-2"
+                style={{ color: eje.color }}
               >
                 <span
-                  className="w-1 h-1 rounded-full"
-                  style={{ background: service.color }}
-                  aria-hidden="true"
-                />
-                {service.id === "marketing" ? "Marketing" : "Ventas & CRM"}
+                  className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold border"
+                  style={{
+                    background: `${eje.color}15`,
+                    borderColor: `${eje.color}30`,
+                    color: eje.color,
+                  }}
+                >
+                  {eje.number}
+                </span>
+                <span
+                  className="text-xs font-bold tracking-wider uppercase px-2 py-0.5 rounded-full"
+                  style={{ background: `${eje.color}12`, color: eje.color }}
+                >
+                  {eje.tag}
+                </span>
               </div>
 
-              {/* Title */}
-              <h3 className="font-heading font-black text-3xl md:text-4xl text-white mb-2 leading-tight">
-                {service.title}
+              {/* Icon */}
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                style={{ background: `${eje.color}15` }}
+                aria-hidden="true"
+              >
+                <eje.icon size={20} style={{ color: eje.color }} />
+              </div>
+
+              {/* Content */}
+              <h3 className="font-heading text-base text-white mb-2 leading-snug">
+                {eje.title}
               </h3>
-              <p
-                className="font-heading font-bold text-lg mb-5"
-                style={{ color: service.color }}
-              >
-                {service.tagline}
+              <p className="text-white/45 text-sm leading-relaxed font-body">
+                {eje.description}
               </p>
-              <p className="text-white/55 leading-relaxed mb-8 text-base">
-                {service.description}
-              </p>
-
-              {/* Feature List */}
-              <ul className="space-y-3 mb-10" aria-label={`Qué incluye ${service.title}`}>
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <div
-                      className="flex items-center justify-center w-8 h-8 rounded-lg flex-shrink-0"
-                      style={{ background: `${service.color}18` }}
-                      aria-hidden="true"
-                    >
-                      <feature.icon size={15} style={{ color: service.color }} />
-                    </div>
-                    <span className="text-white/70 text-sm">{feature.label}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA */}
-              <Button
-                variant="outline"
-                className="group/btn border-white/15 hover:border-white/30"
-                onClick={() =>
-                  document
-                    .getElementById("contacto")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                {service.cta}
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-200 group-hover/btn:translate-x-1"
-                />
-              </Button>
             </article>
           ))}
+        </div>
+
+        {/* CTA Row */}
+        <div className="text-center">
+          <p className="text-white/40 text-sm mb-6 font-body">
+            Identificamos cuáles ejes necesita activar tu negocio en una sesión de diagnóstico gratuita
+          </p>
+          <Button size="lg" onClick={scrollToContact} className="group">
+            Diagnosticar mi sistema de crecimiento
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            />
+          </Button>
         </div>
       </div>
     </section>

@@ -11,9 +11,9 @@ if (typeof window !== "undefined") {
 }
 
 const benefits = [
-  "Diagnóstico inicial gratuito",
-  "Sin contratos a largo plazo",
-  "Resultados en 90 días o devolvemos el dinero",
+  "Diagnóstico inicial de los 8 ejes sin costo",
+  "Sin contratos de largo plazo",
+  "Resultados medibles desde el día 30",
   "Equipo dedicado a tu cuenta",
 ];
 
@@ -74,7 +74,6 @@ export function CTA() {
     }
     setErrors({});
     setLoading(true);
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setLoading(false);
     setSubmitted(true);
@@ -92,46 +91,46 @@ export function CTA() {
     <section
       id="contacto"
       ref={sectionRef}
-      className="py-28 px-6 bg-[#080B12] relative overflow-hidden"
+      className="py-28 px-6 bg-[#0C1418] relative overflow-hidden"
       aria-labelledby="cta-heading"
     >
-      {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-[#FF4D00]/6 blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-[#04CCB5]/5 blur-[150px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="cta-content grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left: Copy */}
           <div>
-            <span className="inline-block text-[#FF4D00] font-heading font-bold text-sm tracking-[0.2em] uppercase mb-6">
-              Empieza ahora
+            <span className="inline-block text-[#04CCB5] font-body font-bold text-sm tracking-[0.2em] uppercase mb-6">
+              Empieza hoy
             </span>
             <h2
               id="cta-heading"
-              className="font-heading font-black text-[clamp(2.5rem,5vw,4rem)] text-white leading-tight mb-6"
+              className="font-heading text-[clamp(2.5rem,5vw,4rem)] text-white leading-tight mb-6"
             >
-              ¿Listo para{" "}
-              <span className="text-gradient-orange">escalar</span> tu negocio?
+              Inicia tu{" "}
+              <span className="text-gradient-teal">diagnóstico</span>{" "}
+              Eje Ocho
             </h2>
-            <p className="text-white/55 text-lg leading-relaxed mb-10">
-              Cuéntanos sobre tu negocio y agendamos una sesión de diagnóstico
-              gratuita de 30 minutos. Sin presión, sin compromisos.
+            <p className="text-white/55 text-lg leading-relaxed mb-10 font-body">
+              En 30 minutos analizamos los 8 ejes de tu negocio, identificamos
+              las brechas más costosas y te entregamos un plan de acción.
+              Sin presión, sin compromisos.
             </p>
 
-            {/* Benefits */}
             <ul className="space-y-3" aria-label="Beneficios incluidos">
               {benefits.map((b, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <CheckCircle2
                     size={18}
-                    className="text-[#00E8A2] flex-shrink-0"
+                    className="text-[#04CCB5] flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <span className="text-white/70 text-base">{b}</span>
+                  <span className="text-white/70 text-base font-body">{b}</span>
                 </li>
               ))}
             </ul>
@@ -141,15 +140,15 @@ export function CTA() {
           <div className="glass-card rounded-3xl p-8 border border-white/[0.06]">
             {submitted ? (
               <div className="text-center py-10">
-                <div className="w-16 h-16 rounded-full bg-[#00E8A2]/15 flex items-center justify-center mx-auto mb-5">
-                  <CheckCircle2 size={30} className="text-[#00E8A2]" aria-hidden="true" />
+                <div className="w-16 h-16 rounded-full bg-[#04CCB5]/15 flex items-center justify-center mx-auto mb-5">
+                  <CheckCircle2 size={30} className="text-[#04CCB5]" aria-hidden="true" />
                 </div>
-                <h3 className="font-heading font-black text-2xl text-white mb-3">
+                <h3 className="font-heading text-2xl text-white mb-3">
                   ¡Mensaje enviado!
                 </h3>
-                <p className="text-white/55 text-sm leading-relaxed">
+                <p className="text-white/55 text-sm leading-relaxed font-body">
                   Te contactaremos en las próximas 24 horas para agendar tu
-                  diagnóstico gratuito.
+                  diagnóstico gratuito de los 8 ejes.
                 </p>
               </div>
             ) : (
@@ -159,9 +158,9 @@ export function CTA() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-white/70 mb-2"
+                      className="block text-sm font-medium text-white/70 mb-2 font-body"
                     >
-                      Nombre completo <span className="text-[#FF4D00]" aria-hidden="true">*</span>
+                      Nombre completo <span className="text-[#04CCB5]" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="name"
@@ -173,10 +172,10 @@ export function CTA() {
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? "name-error" : undefined}
                       placeholder="Tu nombre"
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#FF4D00] focus:ring-1 focus:ring-[#FF4D00] transition-colors text-sm"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#04CCB5] focus:ring-1 focus:ring-[#04CCB5] transition-colors text-sm font-body"
                     />
                     {errors.name && (
-                      <p id="name-error" className="text-[#FF6B6B] text-xs mt-1.5" role="alert">
+                      <p id="name-error" className="text-red-400 text-xs mt-1.5 font-body" role="alert">
                         {errors.name}
                       </p>
                     )}
@@ -186,9 +185,9 @@ export function CTA() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-white/70 mb-2"
+                      className="block text-sm font-medium text-white/70 mb-2 font-body"
                     >
-                      Email <span className="text-[#FF4D00]" aria-hidden="true">*</span>
+                      Email <span className="text-[#04CCB5]" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="email"
@@ -200,10 +199,10 @@ export function CTA() {
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? "email-error" : undefined}
                       placeholder="tu@empresa.com"
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#FF4D00] focus:ring-1 focus:ring-[#FF4D00] transition-colors text-sm"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#04CCB5] focus:ring-1 focus:ring-[#04CCB5] transition-colors text-sm font-body"
                     />
                     {errors.email && (
-                      <p id="email-error" className="text-[#FF6B6B] text-xs mt-1.5" role="alert">
+                      <p id="email-error" className="text-red-400 text-xs mt-1.5 font-body" role="alert">
                         {errors.email}
                       </p>
                     )}
@@ -213,9 +212,9 @@ export function CTA() {
                   <div>
                     <label
                       htmlFor="business"
-                      className="block text-sm font-medium text-white/70 mb-2"
+                      className="block text-sm font-medium text-white/70 mb-2 font-body"
                     >
-                      Nombre de tu negocio <span className="text-[#FF4D00]" aria-hidden="true">*</span>
+                      Nombre de tu negocio <span className="text-[#04CCB5]" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="business"
@@ -227,10 +226,10 @@ export function CTA() {
                       aria-invalid={!!errors.business}
                       aria-describedby={errors.business ? "business-error" : undefined}
                       placeholder="Mi Empresa S.A."
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#FF4D00] focus:ring-1 focus:ring-[#FF4D00] transition-colors text-sm"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#04CCB5] focus:ring-1 focus:ring-[#04CCB5] transition-colors text-sm font-body"
                     />
                     {errors.business && (
-                      <p id="business-error" className="text-[#FF6B6B] text-xs mt-1.5" role="alert">
+                      <p id="business-error" className="text-red-400 text-xs mt-1.5 font-body" role="alert">
                         {errors.business}
                       </p>
                     )}
@@ -240,7 +239,7 @@ export function CTA() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-white/70 mb-2"
+                      className="block text-sm font-medium text-white/70 mb-2 font-body"
                     >
                       ¿Cuál es tu principal reto de crecimiento?
                     </label>
@@ -251,7 +250,7 @@ export function CTA() {
                       value={formState.message}
                       onChange={handleChange}
                       placeholder="Ej: Necesitamos más clientes, nuestro equipo no cierra ventas..."
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#FF4D00] focus:ring-1 focus:ring-[#FF4D00] transition-colors text-sm resize-none"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#04CCB5] focus:ring-1 focus:ring-[#04CCB5] transition-colors text-sm resize-none font-body"
                     />
                   </div>
 
@@ -268,7 +267,7 @@ export function CTA() {
                       </>
                     ) : (
                       <>
-                        Agendar diagnóstico gratuito
+                        Iniciar diagnóstico Eje Ocho
                         <ArrowRight size={18} aria-hidden="true" />
                       </>
                     )}

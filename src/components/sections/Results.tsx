@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TrendingUp, Users, Clock, Award } from "lucide-react";
+import { TrendingUp, Users, Clock, Target } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -16,15 +16,15 @@ const metrics = [
     suffix: "%",
     label: "ROI promedio",
     description: "en campañas de paid media",
-    color: "#00E8A2",
+    color: "#04CCB5",
   },
   {
     icon: Users,
     value: 50,
     suffix: "+",
     label: "PYMEs atendidas",
-    description: "transformadas y creciendo",
-    color: "#FF4D00",
+    description: "en crecimiento activo",
+    color: "#FCE300",
   },
   {
     icon: Clock,
@@ -32,39 +32,42 @@ const metrics = [
     suffix: " días",
     label: "para ver resultados",
     description: "desde el inicio del proyecto",
-    color: "#FFB800",
+    color: "#508590",
   },
   {
-    icon: Award,
+    icon: Target,
     value: 3,
     suffix: "x",
     label: "aumento en ventas",
     description: "promedio en clientes activos",
-    color: "#A78BFA",
+    color: "#C6D6E3",
   },
 ];
 
-const caseStudies = [
+const niveles = [
   {
-    industry: "Clínica Dental",
-    result: "+280% en pacientes nuevos",
-    period: "en 4 meses",
-    metric: "80% menos costo por adquisición",
-    color: "#00E8A2",
+    nivel: "Nivel 1",
+    title: "Fundamentos",
+    description:
+      "Estableces identidad, presencia digital básica y un proceso de ventas estructurado. Dejas de operar por intuición.",
+    pillars: ["Identidad clara", "Presencia digital activa", "CRM básico implementado"],
+    color: "#04CCB5",
   },
   {
-    industry: "Tienda de Ropa",
-    result: "3.5x más ventas online",
-    period: "en 3 meses",
-    metric: "ROAS de 8.2x en Meta Ads",
-    color: "#FF4D00",
+    nivel: "Nivel 2",
+    title: "Optimización",
+    description:
+      "Tus canales generan leads de forma consistente. El equipo cierra con método. La experiencia del cliente es memorable.",
+    pillars: ["Leads calificados constantes", "Tasa de cierre mejorada", "NPS positivo"],
+    color: "#FCE300",
   },
   {
-    industry: "Empresa de Servicios B2B",
-    result: "+420% más leads calificados",
-    period: "en 6 meses",
-    metric: "Pipeline de $1.2M en oportunidades",
-    color: "#FFB800",
+    nivel: "Nivel 3",
+    title: "Escalamiento",
+    description:
+      "El sistema funciona casi solo. Tienes dashboards, procesos documentados y un motor de referidos que alimenta el crecimiento.",
+    pillars: ["Crecimiento predecible", "Referidos activos", "Expansión de ticket promedio"],
+    color: "#508590",
   },
 ];
 
@@ -83,7 +86,6 @@ function Counter({
 
   useEffect(() => {
     if (!triggered) return;
-    const start = 0;
     const duration = 2000;
     const startTime = performance.now();
 
@@ -99,7 +101,7 @@ function Counter({
   }, [triggered, value]);
 
   return (
-    <span className="font-heading font-black text-5xl md:text-6xl" style={{ color }}>
+    <span className="font-heading text-5xl md:text-6xl" style={{ color }}>
       {count}
       {suffix}
     </span>
@@ -145,16 +147,17 @@ export function Results() {
       );
 
       gsap.fromTo(
-        ".case-card",
-        { x: -30, opacity: 0 },
+        ".nivel-card",
+        { y: 40, opacity: 0, scale: 0.97 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
+          scale: 1,
           stagger: 0.15,
           duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: ".case-card",
+            trigger: ".nivel-card",
             start: "top 85%",
           },
         }
@@ -168,36 +171,34 @@ export function Results() {
     <section
       id="resultados"
       ref={sectionRef}
-      className="py-28 px-6 bg-[#05070D] relative overflow-hidden"
+      className="py-28 px-6 bg-[#090F13] relative overflow-hidden"
       aria-labelledby="results-heading"
     >
-      {/* Background glow */}
       <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#00E8A2]/4 blur-[150px] pointer-events-none"
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#04CCB5]/4 blur-[150px] pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="results-heading text-center mb-20">
-          <span className="inline-block text-[#00E8A2] font-heading font-bold text-sm tracking-[0.2em] uppercase mb-4">
+          <span className="inline-block text-[#04CCB5] font-body font-bold text-sm tracking-[0.2em] uppercase mb-4">
             Resultados probados
           </span>
           <h2
             id="results-heading"
-            className="font-heading font-black text-[clamp(2.5rem,5vw,4.5rem)] text-white leading-tight mb-6"
+            className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] text-white leading-tight mb-6"
           >
             Números que{" "}
-            <span className="text-gradient-mint">hablan solos</span>
+            <span className="text-gradient-teal">hablan solos</span>
           </h2>
-          <p className="max-w-xl mx-auto text-white/50 text-lg leading-relaxed">
-            Resultados reales de PYMEs como la tuya que decidieron dejar de
-            improvisar.
+          <p className="max-w-xl mx-auto text-white/50 text-lg leading-relaxed font-body">
+            Resultados reales de PYMEs que decidieron alinear sus 8 ejes.
           </p>
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
           {metrics.map((metric, i) => (
             <div
               key={i}
@@ -205,7 +206,7 @@ export function Results() {
             >
               <div
                 className="flex items-center justify-center w-10 h-10 rounded-xl mx-auto mb-4"
-                style={{ background: `${metric.color}18` }}
+                style={{ background: `${metric.color}15` }}
                 aria-hidden="true"
               >
                 <metric.icon size={18} style={{ color: metric.color }} />
@@ -216,51 +217,71 @@ export function Results() {
                 color={metric.color}
                 triggered={triggered}
               />
-              <div className="font-heading font-bold text-white/80 text-sm mt-1 mb-1">
+              <div className="font-body font-bold text-white/80 text-sm mt-1 mb-1">
                 {metric.label}
               </div>
-              <div className="text-white/40 text-xs">{metric.description}</div>
+              <div className="text-white/40 text-xs font-body">{metric.description}</div>
             </div>
           ))}
         </div>
 
-        {/* Case Studies */}
+        {/* Niveles de Madurez */}
         <div>
-          <h3 className="font-heading font-bold text-white/40 text-sm tracking-[0.2em] uppercase mb-8 text-center">
-            Casos de éxito
+          <h3 className="font-body font-bold text-white/40 text-sm tracking-[0.2em] uppercase mb-10 text-center">
+            Los 3 Niveles de Madurez Comercial
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {caseStudies.map((cs, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {niveles.map((nivel, i) => (
               <div
                 key={i}
-                className="case-card glass-card rounded-2xl p-7 border border-white/[0.05] hover-lift"
+                className="nivel-card relative rounded-2xl p-8 border hover-lift overflow-hidden"
+                style={{
+                  background: `linear-gradient(135deg, ${nivel.color}06 0%, transparent 100%)`,
+                  borderColor: `${nivel.color}20`,
+                }}
               >
+                <div
+                  className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl pointer-events-none"
+                  style={{ background: `${nivel.color}08` }}
+                  aria-hidden="true"
+                />
                 <div
                   className="inline-block text-xs font-bold tracking-wider uppercase rounded-full px-3 py-1 mb-5"
                   style={{
-                    background: `${cs.color}18`,
-                    color: cs.color,
+                    background: `${nivel.color}15`,
+                    color: nivel.color,
                   }}
                 >
-                  {cs.industry}
+                  {nivel.nivel}
                 </div>
                 <div
-                  className="font-heading font-black text-2xl md:text-3xl mb-1 leading-tight"
-                  style={{ color: cs.color }}
+                  className="font-heading text-2xl md:text-3xl mb-3 leading-tight"
+                  style={{ color: nivel.color }}
                 >
-                  {cs.result}
+                  {nivel.title}
                 </div>
-                <div className="text-white/40 text-sm mb-4">{cs.period}</div>
-                <div className="h-px bg-white/[0.06] mb-4" />
-                <div className="text-white/60 text-sm font-medium">{cs.metric}</div>
+                <p className="text-white/55 text-sm mb-6 leading-relaxed font-body">
+                  {nivel.description}
+                </p>
+                <ul className="space-y-2">
+                  {nivel.pillars.map((pillar, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-white/60 font-body">
+                      <span
+                        className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: nivel.color }}
+                        aria-hidden="true"
+                      />
+                      {pillar}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <p className="text-center text-white/25 text-xs mt-10">
-          * Los resultados varían según el tipo de negocio, inversión y ejecución. Los números son aproximados basados en clientes activos.
+        <p className="text-center text-white/20 text-xs mt-10 font-body">
+          * Los resultados varían según tipo de negocio, inversión y ejecución. Datos basados en clientes activos.
         </p>
       </div>
     </section>
